@@ -1,0 +1,34 @@
+<?php
+$datasets['OF - COMMANDE TOILES SODICLAIR'][presentation] = 'l';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][padding] = 3;
+$datasets['OF - COMMANDE TOILES SODICLAIR'][nonmodifiable] = 1;
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][repere_of_commande_toile][id_champ] = 'REPERE';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][dimensions_toiles_finies][id_champ] = 'DIMENSIONS TOILES FINIES';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][qte][id_champ] = 'Qté';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][confection_haute][id_champ] = 'Confection HAUTE';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][confection_basse][id_champ] = 'Confection BASSE';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][toile_bi_color][id_champ] = 'COTE SOUDURE';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][bande_renfort_sodiclair][id_champ] = 'BANDES DE RENFORT';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][gamme_sodiclair][id_champ] = 'GAMME';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][gammetoile_coloris_sodiclair][id_champ] = 'COLORIS';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][ref_sodiclair][id_champ] = 'REFERENCE';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][prix_total_ht][id_champ] = 'PRIX TOTAL HT';
+$champs[prix_total_ht][libelle] = 'PRIX TOTAL HT';
+$champs[prix_total_ht][type] = 'ouvert';
+$champs[prix_total_ht][longueur] = 10;
+$champs[prix_total_ht][rowspan] = 2;
+$champs[prix_total_ht][largeur] = 4/5;
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][prix_total_ht_1][id_champ] = 'PRIX TOTAL HT';
+$champs[prix_total_ht_1][libelle] = 'PRIX TOTAL HT';
+$champs[prix_total_ht_1][type] = 'ouvert';
+$champs[prix_total_ht_1][longueur] = 10;
+$champs[prix_total_ht_1][rowspan] = 2;
+$champs[prix_total_ht_1][largeur] = 4/5;
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][batiment_emballage][id_champ] = 'Bât';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][etage_emballage][id_champ] = 'Etage';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][piece_emballage][id_champ] = 'Pièce';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][fenetre_emballage][id_champ] = 'Fenêtre';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][toile_l_sodiclair][id_champ] = 'LARGEUR en mm';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][champs][toile_h_sodiclair][id_champ] = 'HAUTEUR en mm';
+$datasets['OF - COMMANDE TOILES SODICLAIR'][nonmodifiable] = 1;
+?>

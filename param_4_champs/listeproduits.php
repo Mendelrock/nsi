@@ -1,0 +1,3 @@
+<?
+$champs[listeproduits][type] = 'literal';
+?>

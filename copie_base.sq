@@ -1,0 +1,3 @@
+DROP DATABASE bdm_ageclair_pre;
+CREATE DATABASE IF NOT EXISTS bdm_ageclair_pre;
+GRANT ALL PRIVILEGES ON `bdm\_ageclair\_pre`.* TO 'bdm_ageclair_pre'@'%';

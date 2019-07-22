@@ -1,0 +1,2578 @@
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 868;
+
+0.001
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 869;
+
+0.001
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 870;
+
+0
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 871;
+
+0.003
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2;
+
+connexion : 872;
+
+0.251
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) res LIMIT 1;
+
+connexion : 873;
+
+0.243
+
+
+			select * from (
+				select 
+					req1.*,
+					count(*) as ploik_c 
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 874;
+
+0.303
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 875;
+
+0
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 876;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 877;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 878;
+
+0.004
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 879;
+
+0.295
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 880;
+
+0.321
+
+
+			select * from (
+				select 
+					req1.*,
+					count(*) as ploik_c 
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 881;
+
+0.322
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 992;
+
+0.002
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 993;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 994;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 995;
+
+0.002
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2;
+
+connexion : 996;
+
+0.261
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) res LIMIT 1;
+
+connexion : 997;
+
+0.275
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 998;
+
+0.301
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 999;
+
+0.014
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1000;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1001;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1002;
+
+0.005
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1003;
+
+0.281
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1004;
+
+0.306
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1005;
+
+0.326
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1006;
+
+0.002
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1007;
+
+0.001
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1008;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1009;
+
+0.002
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2;
+
+connexion : 1010;
+
+0.249
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) res LIMIT 1;
+
+connexion : 1011;
+
+0.243
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1012;
+
+0.264
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1013;
+
+0.001
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1014;
+
+0.001
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1015;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1016;
+
+0.003
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1017;
+
+0.277
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1018;
+
+0.301
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1019;
+
+0.285
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1020;
+
+0.002
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1021;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1022;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1023;
+
+0.001
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2;
+
+connexion : 1024;
+
+0.245
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) res LIMIT 1;
+
+connexion : 1025;
+
+0.244
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1026;
+
+0.3
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1027;
+
+0
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1028;
+
+0.001
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1029;
+
+0
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1030;
+
+0.004
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1031;
+
+0.288
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1032;
+
+0.26
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1033;
+
+0.297
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1034;
+
+0.002
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1035;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1036;
+
+0
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1037;
+
+0.002
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1038;
+
+0.252
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1039;
+
+0.25
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1040;
+
+0.267
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1041;
+
+0.244
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1042;
+
+0.255
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1043;
+
+0.277
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1044;
+
+0.293
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1045;
+
+0.248
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1046;
+
+0.262
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1047;
+
+0.254
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1048;
+
+0.253
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '1' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1049;
+
+0.273
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1054;
+
+0
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1055;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1056;
+
+0
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1057;
+
+0.002
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1058;
+
+0.006
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1059;
+
+0.008
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1060;
+
+0.008
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1061;
+
+0
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1062;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1063;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1064;
+
+0.002
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1065;
+
+0.004
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1066;
+
+0.005
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1067;
+
+0.007
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1068;
+
+0.001
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1069;
+
+0.001
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1070;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1071;
+
+0.002
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '2' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1072;
+
+0.015
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '2' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1073;
+
+0.013
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '2' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2019-01-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1074;
+
+0.021
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1075;
+
+0
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1076;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1077;
+
+0
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1078;
+
+0.002
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '2' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1079;
+
+0.022
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '2' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1080;
+
+0.015
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE dt.origine = '2' AND STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1081;
+
+0.025
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1082;
+
+0.001
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1083;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1084;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1085;
+
+0.002
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1086;
+
+0.005
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1087;
+
+0.005
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1088;
+
+0.007
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1089;
+
+0.001
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1090;
+
+0.001
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1091;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1092;
+
+0.001
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2;
+
+connexion : 1093;
+
+0.001
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) res LIMIT 1;
+
+connexion : 1094;
+
+0.001
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 2) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1095;
+
+0.001
+
+select * from champ_lov_valeurs where field = 'statut'  order by id_data;
+
+connexion : 1096;
+
+0.001
+
+SELECT Id_statut, Lb_statut FROM statut;
+
+connexion : 1097;
+
+0
+
+SELECT 
+										Id_utilisateur,
+										Nom 
+									 FROM 
+										utilisateur
+									 WHERE 
+										utilisateur.id_profil in (1,5)
+									 ORDER BY 
+										Nom ASC;
+
+connexion : 1098;
+
+0.001
+
+SELECT nom FROM utilisateur u WHERE exists(SELECT 1 from utilisateur WHERE Id_responsable = u.Id_utilisateur);
+
+connexion : 1099;
+
+0.002
+
+
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502;
+
+connexion : 1100;
+
+0.007
+
+select * from (
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) res LIMIT 1;
+
+connexion : 1101;
+
+0.007
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1102;
+
+0.007
+
+
+			select * from (
+				select 
+					req1.*
+				from 
+					(
+	SELECT
+		doc.id_doc as 'N Feuille de cote',
+		dt.nomclient_fdc as 'Raison sociale',
+		dt.numcommande_fdc as 'N de commande ou BCC',
+		dt.phase as Phase,
+		dt.prix_ht as 'montant_Montant HT',
+		Lb_statut as 'Statut Affaire',
+		commentaire as 'Nom Affaire',
+		CONCAT('<a class="resultat" href="doc.php?id_doc=', doc.id_doc, '" target="droite">', dt.statut, '</a>') as 'Statut Feuille de Cotes',
+		concat(u.nom,' ' ,u.prenom) as Commercial
+	FROM
+		affaire,
+		statut,
+		zdataset_fdcentete dt,
+		utilisateur u,
+		contact,
+		doc
+	WHERE STR_TO_DATE(dt.date_cde, '%Y-%m-%d' ) >= STR_TO_DATE('2018-09-01', '%Y-%m-%d' ) AND 
+		type_doc='fdc' AND
+		dt.id_dataset = doc.id_dataset_entete AND
+		affaire.id_affaire = dt.affaire AND statut.Id_statut=affaire.Id_statut AND
+		affaire.id_contact = contact.id_contact AND
+		u.id_utilisateur = affaire.id_utilisateur 
+	ORDER BY
+	   doc.id_doc DESC	
+	LIMIT 0, 502) as req1
+			) as req2
+			limit 1, 25
+		;
+
+connexion : 1103;
+
+0.005
